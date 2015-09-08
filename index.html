@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>.Net Extensions Demo</title>
+  <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+  <link rel="import" href="bower_components/polymer/polymer.html" />
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html" />
+  <link rel="import" href="bower_components/paper-input/paper-input.html" />
+  <link rel="import" href="bower_components/paper-button/paper-button.html" />
+  <script>
+    function Callback(message) {
+      var answer = document.getElementById("answer");
+      answer.innerHTML = "We received back from .NET : " + message;
+    }
+    function echo() {
+      var message = document.getElementById("input").value;
+      dotnet.demos.echo.echo(message, Callback);
+    }
+    function echoSync() {
+      var message = document.getElementById("input").value;
+      var ret = dotnet.demos.echo.syncEcho(message);
+      var answer = document.getElementById("answer");
+      answer.innerHTML = "We received back from .NET : " + ret;
+    }
+
+  </script>
+  <style>
+    .big {
+      font-size : 20px;
+    }
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body unresolved fullbleed>
+  <paper-toolbar>
+    <div class="title">.Net Demo Loading External Extension</div>
+  </paper-toolbar>
+  <p class="big">Please enter a text you would like to .NET to echo:</p>
+  <div class="layout horizontal center">
+    <paper-input label="Input label" id="input"></paper-input>
+    <paper-button raised onclick="echo()">Echo</paper-button>
+    <paper-button raised onclick="echoSync()">EchoSync</paper-button>
+  </div>
+  <p class="big red" id="answer"></p>
+</body>
+</html>

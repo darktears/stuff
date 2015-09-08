@@ -1,0 +1,21 @@
+{
+  "name": "dotnet",
+  "version": "0.0.0",
+  "authors": [
+    "Alexis Menard <alexis.menard@intel.com>"
+  ],
+  "main": "index.html",
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-elements": "polymerelements/iron-elements#~1.0.3",
+    "paper-elements": "polymerelements/paper-elements#~1.0.4"
+  }
+}
